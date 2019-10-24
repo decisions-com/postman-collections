@@ -1,0 +1,296 @@
+{
+	"info": {
+		"_postman_id": "efb0df3a-efd2-404c-8aba-522026bdf8af",
+		"name": "Truth Table Service Integration",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login and Get Session 6.x",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userid\": \"admin@decisions.com\",\r\n  \"password\": \"admin\",\r\n  \"outputtype\": \"Json\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/AccountService/LoginUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"AccountService",
+						"LoginUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Available Rule Verbs",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n   \"outputtype\": \"Json\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/GetRules",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"GetRules"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Blank Truth Table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"folderId\": \"MY__DESIGNS__FOLDER__ID\",\r\n  \"name\": \"My New Truth Table Test\",\r\n  \"outputtype\": \"Json\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/CreateTruthTable",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"CreateTruthTable"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Start New Edit Session",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n\r\n  \"ruleId\": \"a123e972-f668-11e9-a9bc-04d4c4555838\",\r\n  \"outputtype\": \"Json\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/StartEditSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"StartEditSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add a Column",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"name\": \"My First Input\", \r\n  \"editSessionId\": \"81dd59ec-06b1-4920-934c-1cd708419ef5\",\r\n  \"ruleId\": \"1281ddd0-f66b-11e9-a9bc-04d4c4555838\",\r\n  \"evaluateAsNot\": false,\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/AddRule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"AddRule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Column by Position",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"editSessionId\": \"0b71628f-cbed-4b20-96d3-1cb92621eba1\",\r\n  \"column\": 0,\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/RemoveRuleByPosition",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"RemoveRuleByPosition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Inputs for Truth Table",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"ruleSessionId\": \"5d2e890d-ee62-43d6-9a08-e938ffe03c0f\",\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/GetRuleParametersFromSession",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"GetRuleParametersFromSession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Truth Table Returns",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"editSessionId\": \"5d2e890d-ee62-43d6-9a08-e938ffe03c0f\",\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/GetRuleReturns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"GetRuleReturns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Rule",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"editSessionId\": \"7a0d9f7a-4877-4aad-881b-8152a923d08b\",\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/SaveRule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"SaveRule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Value in Column",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"editSessionId\": \"5d2e890d-ee62-43d6-9a08-e938ffe03c0f\",\r\n  \"ruleDataId\": \"40c47835-b42a-4c35-bc05-a09ee1d7e37a\",\r\n  \"data\": [\r\n    {\r\n      \"ColumnId\": \"13471b3d-4e37-4c84-80ce-19de6bbd6ba2\",\r\n      \"Values\": [\r\n        {\r\n          \"Name\": \"value\",\r\n          \"OutputValue\": \"Updated Test Value from Service\"\r\n        }\r\n      ]\r\n    }\r\n  ],\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/UpdateRuleRow",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"UpdateRuleRow"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Row Data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"sessionid\" : \"80527bea-cb3d-4441-9745-beba044db4cc\",\r\n  \"editSessionId\": \"5d2e890d-ee62-43d6-9a08-e938ffe03c0f\",\r\n  \"outputtype\": \"Json\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/TruthTableService/GetRuleRows",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"TruthTableService",
+						"GetRuleRows"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
