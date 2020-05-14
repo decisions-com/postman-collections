@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "98eff1be-e0d9-4839-8519-4ecd9194927d",
+		"name": "Converted Rule Examples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login and Get Session 6.x",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userid\": \"admin@decisions.com\",\r\n  \"password\": \"admin\",\r\n  \"outputtype\": \"Json\"\r\n}\r\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/REST/AccountService/LoginUser",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						"REST",
+						"AccountService",
+						"LoginUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example 1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"sessionid\": \"50a1b502-abe0-40c9-a818-5ace101508ae\",\r\n\"outputtype\": \"Json\",\r\n  \"ConvertedRule\": [{\r\n    \"ImageData\": null,  \r\n    \"RuleId\": \"Ex1\",\r\n    \"RuleName\": \"Document Example Rule 1\",\r\n    \"Description\": \"This is a rule created from an API call and usable in Decisions\",\r\n    \"InputData\": [\r\n      {\r\n        \"Name\": \"Employee Name\",\r\n        \"FullTypeName\": \"string\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      },\r\n      {\r\n        \"Name\": \"Employee Age\",\r\n        \"FullTypeName\": \"int\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      }\r\n    ],\r\n    \"OutputData\": null,\r\n    \"RuleBehavior\": null,\r\n    \"BeginDate\": \"2020-03-01T00:00:00\",\r\n    \"EndDate\": \"2021-03-01T00:00:00\",\r\n    \"StatementsGroupsType\": 0,\r\n    \"Statements\": [\r\n      {\r\n        \"GroupType\": 0,\r\n       \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Name\",\r\n            \"Verb\": \"Equals\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"Marcus\"\r\n            }\r\n          }          \r\n        ]\r\n\r\n      }\r\n    ]\r\n  }]\r\n}\r\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/?FlowId=4d23519f-5cc2-11ea-91e5-802bf91c4178&Action=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						""
+					],
+					"query": [
+						{
+							"key": "FlowId",
+							"value": "4d23519f-5cc2-11ea-91e5-802bf91c4178"
+						},
+						{
+							"key": "Action",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example 1 True Action",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"sessionid\": \"14c2b912-c325-41b5-aacc-afcc5cf78f56\",\r\n\"outputtype\": \"Json\",\r\n  \"ConvertedRule\": [{\r\n    \"ImageData\": null,  \r\n    \"RuleId\": \"Ex1WithAct\",\r\n    \"RuleName\": \"Document Example Rule 1 with Action\",\r\n    \"Description\": \"This is a rule created from an API call and usable in Decisions\",\r\n    \"InputData\": [\r\n      {\r\n        \"Name\": \"Employee Name\",\r\n        \"FullTypeName\": \"string\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      },\r\n      {\r\n        \"Name\": \"Employee Age\",\r\n        \"FullTypeName\": \"int\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      }\r\n    ],\r\n    \"OutputData\": null,\r\n    \"RuleBehavior\": null,\r\n    \"BeginDate\": \"2020-03-01T00:00:00\",\r\n    \"EndDate\": \"2021-03-01T00:00:00\",\r\n    \"StatementsGroupsType\": 0,\r\n    \"Statements\": [\r\n      {\r\n        \"GroupType\": 0,\r\n       \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Name\",\r\n            \"Verb\": \"Equals\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"Marcus\"\r\n            }\r\n          }          \r\n        ]\r\n\r\n      }\r\n    ],\r\n    \"Actions\": [\r\n        {\r\n          \"FlowId\": \"bebb5bb1-5d9f-11ea-91e6-802bf91c4178.a3cfbe5e-1ca9-4995-b594-5b737089a200\",\r\n          \"OnTrue\": true,\r\n          \"FlowInputs\": null\r\n        }\r\n      ]\r\n  }]\r\n}\r\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/?FlowId=4d23519f-5cc2-11ea-91e5-802bf91c4178&Action=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						""
+					],
+					"query": [
+						{
+							"key": "FlowId",
+							"value": "4d23519f-5cc2-11ea-91e5-802bf91c4178"
+						},
+						{
+							"key": "Action",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"sessionid\": \"50a1b502-abe0-40c9-a818-5ace101508ae\",\r\n\"outputtype\": \"Json\",\r\n  \"ConvertedRule\": [{\r\n    \"ImageData\": null,  \r\n    \"RuleId\": \"Ex2\",\r\n    \"RuleName\": \"Document Example Rule 2\",\r\n    \"Description\": \"This is a rule created from an API call and usable in Decisions\",\r\n    \"InputData\": [\r\n      {\r\n        \"Name\": \"Employee Name\",\r\n        \"FullTypeName\": \"string\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      },\r\n      {\r\n        \"Name\": \"Employee Age\",\r\n        \"FullTypeName\": \"int\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      }\r\n    ],\r\n    \"OutputData\": null,\r\n    \"RuleBehavior\": null,\r\n    \"BeginDate\": \"2020-03-01T00:00:00\",\r\n    \"EndDate\": \"2021-03-01T00:00:00\",\r\n    \"StatementsGroupsType\": 0,\r\n    \"Statements\": [\r\n      {\r\n        \"GroupType\": 0,\r\n        \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Name\",\r\n            \"Verb\": \"Equals\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"Marcus\"\r\n            }\r\n          },\r\n          {\r\n            \"AnchorName\": \"Employee Age\",\r\n            \"Verb\": \"less than\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"22\"\r\n            }\r\n          }\r\n          \r\n        ]\r\n      \r\n      }\r\n    ]\r\n  }]\r\n}\r\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/?FlowId=4d23519f-5cc2-11ea-91e5-802bf91c4178&Action=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						""
+					],
+					"query": [
+						{
+							"key": "FlowId",
+							"value": "4d23519f-5cc2-11ea-91e5-802bf91c4178"
+						},
+						{
+							"key": "Action",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example 3",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"sessionid\": \"50a1b502-abe0-40c9-a818-5ace101508ae\",\r\n\"outputtype\": \"Json\",\r\n  \"ConvertedRule\": [{\r\n    \"ImageData\": null,  \r\n    \"RuleId\": \"Ex3\",\r\n    \"RuleName\": \"Document Example Rule 3\",\r\n    \"Description\": \"This is a rule created from an API call and usable in Decisions\",\r\n    \"InputData\": [\r\n      {\r\n        \"Name\": \"Employee Name\",\r\n        \"FullTypeName\": \"string\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      },\r\n      {\r\n        \"Name\": \"Employee Age\",\r\n        \"FullTypeName\": \"int\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      }\r\n    ],\r\n    \"OutputData\": null,\r\n    \"RuleBehavior\": null,\r\n    \"BeginDate\": \"2020-03-01T00:00:00\",\r\n    \"EndDate\": \"2021-03-01T00:00:00\",\r\n    \"StatementsGroupsType\": 1,\r\n    \"Statements\": [\r\n      {\r\n        \"GroupType\": 0,\r\n        \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Name\",\r\n            \"Verb\": \"Equals\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"Marcus\"\r\n            }\r\n          }\r\n        ]\r\n      },\r\n      {\r\n        \"GroupType\": 0,\r\n        \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Age\",\r\n            \"Verb\": \"less than\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"22\"\r\n            }\r\n          }\r\n        ]\r\n      }\r\n    ]\r\n  }]\r\n}\r\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/?FlowId=4d23519f-5cc2-11ea-91e5-802bf91c4178&Action=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						""
+					],
+					"query": [
+						{
+							"key": "FlowId",
+							"value": "4d23519f-5cc2-11ea-91e5-802bf91c4178"
+						},
+						{
+							"key": "Action",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example 3 - With Action and Mapping",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"sessionid\": \"14c2b912-c325-41b5-aacc-afcc5cf78f56\",\r\n\t\"outputtype\": \"Json\",\r\n\t\"ConvertedRule\": [{\r\n\t\t\"ImageData\": null,\r\n\t\t\"RuleId\": \"Ex3wA\",\r\n\t\t\"RuleName\": \"Document Example Rule 3 with Actions\",\r\n\t\t\"Description\": \"This is a rule created from an API call and usable in Decisions\",\r\n\t\t\"InputData\": [{\r\n\t\t\t\t\"Name\": \"Employee Name\",\r\n\t\t\t\t\"FullTypeName\": \"string\",\r\n\t\t\t\t\"CanBeNull\": false,\r\n\t\t\t\t\"IsList\": false\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"Name\": \"Employee Age\",\r\n\t\t\t\t\"FullTypeName\": \"int\",\r\n\t\t\t\t\"CanBeNull\": false,\r\n\t\t\t\t\"IsList\": false\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"OutputData\": null,\r\n\t\t\"RuleBehavior\": null,\r\n\t\t\"BeginDate\": \"2020-03-01T00:00:00\",\r\n\t\t\"EndDate\": \"2021-03-01T00:00:00\",\r\n\t\t\"StatementsGroupsType\": 1,\r\n\t\t\"Statements\": [{\r\n\t\t\t\t\"GroupType\": 0,\r\n\t\t\t\t\"GroupStatements\": [{\r\n\t\t\t\t\t\"AnchorName\": \"Employee Name\",\r\n\t\t\t\t\t\"Verb\": \"Equals\",\r\n\t\t\t\t\t\"RuleVerbNot\": false,\r\n\t\t\t\t\t\"Value\": {\r\n\t\t\t\t\t\t\"ValueType\": 2,\r\n\t\t\t\t\t\t\"ValueData\": \"Marcus\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}]\r\n\t\t\t},\r\n\t\t\t{\r\n\t\t\t\t\"GroupType\": 0,\r\n\t\t\t\t\"GroupStatements\": [{\r\n\t\t\t\t\t\"AnchorName\": \"Employee Age\",\r\n\t\t\t\t\t\"Verb\": \"less than\",\r\n\t\t\t\t\t\"RuleVerbNot\": false,\r\n\t\t\t\t\t\"Value\": {\r\n\t\t\t\t\t\t\"ValueType\": 2,\r\n\t\t\t\t\t\t\"ValueData\": \"22\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}]\r\n\t\t\t}\r\n\t  ],\r\n    \"Actions\": [\r\n        {\r\n          \"FlowId\": \"bebb5bb1-5d9f-11ea-91e6-802bf91c4178.a3cfbe5e-1ca9-4995-b594-5b737089a200\",\r\n          \"OnTrue\": true,\r\n          \"FlowInputs\": null\r\n        },\r\n        {\r\n          \"FlowId\": \"c62edf4f-5db8-11ea-91e6-802bf91c4178\",\r\n          \"OnTrue\": false,\r\n          \"FlowInputs\": [\r\n        \t{\r\n        \t\t\"ValueType\": 2,\r\n\t\t\t\t\"ValueData\": \"Jimmy\",\r\n\t\t\t\t\"ParameterName\": \"UserName\",\r\n\t\t\t\t\"ParameterTypeName\": \"System.String\"\r\n        \t}\r\n          ]\r\n        }\r\n      ]\r\n  }]\r\n}",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/?FlowId=4d23519f-5cc2-11ea-91e5-802bf91c4178&Action=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						""
+					],
+					"query": [
+						{
+							"key": "FlowId",
+							"value": "4d23519f-5cc2-11ea-91e5-802bf91c4178"
+						},
+						{
+							"key": "Action",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Example 4",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"sessionid\": \"50a1b502-abe0-40c9-a818-5ace101508ae\",\r\n\"outputtype\": \"Json\",\r\n  \"ConvertedRule\": [{\r\n    \"ImageData\": null,  \r\n    \"RuleId\": \"Ex4\",\r\n    \"RuleName\": \"Document Example Rule 4\",\r\n    \"Description\": \"This is a rule created from an API call and usable in Decisions\",\r\n    \"InputData\": [\r\n      {\r\n        \"Name\": \"Employee Name\",\r\n        \"FullTypeName\": \"string\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      },\r\n      {\r\n        \"Name\": \"Employee Age\",\r\n        \"FullTypeName\": \"int\",\r\n        \"CanBeNull\": false,\r\n        \"IsList\": false\r\n      }\r\n    ],\r\n    \"OutputData\": null,\r\n    \"RuleBehavior\": null,\r\n    \"BeginDate\": \"2020-03-01T00:00:00\",\r\n    \"EndDate\": \"2021-03-01T00:00:00\",\r\n    \"StatementsGroupsType\": 1,\r\n    \"Statements\": [\r\n      {\r\n        \"GroupType\": 0,\r\n        \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Name\",\r\n            \"Verb\": \"Equals\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 0,\r\n              \"ValueData\": \"Marcus\"\r\n            }\r\n          },\r\n          {\r\n            \"AnchorName\": \"Employee Age\",\r\n            \"Verb\": \"less than\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 1,\r\n              \"ValueData\": \"Employee Age\"\r\n            }\r\n          }\r\n          \r\n        ]\r\n      },\r\n      {\r\n        \"GroupType\": 0,\r\n        \"GroupStatements\": [\r\n          {\r\n            \"AnchorName\": \"Employee Name\",\r\n            \"Verb\": \"Equals\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"Jim\"\r\n            }\r\n          },\r\n          {\r\n            \"AnchorName\": \"Employee Age\",\r\n            \"Verb\": \"less than\",\r\n            \"RuleVerbNot\": false,\r\n            \"Value\": {\r\n              \"ValueType\": 2,\r\n              \"ValueData\": \"18\"\r\n            }\r\n          }\r\n          \r\n        ]\r\n      }\r\n    ]\r\n  }]\r\n}\r\n",
+					"options": {
+						"raw": {}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/decisions/Primary/?FlowId=4d23519f-5cc2-11ea-91e5-802bf91c4178&Action=api",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"decisions",
+						"Primary",
+						""
+					],
+					"query": [
+						{
+							"key": "FlowId",
+							"value": "4d23519f-5cc2-11ea-91e5-802bf91c4178"
+						},
+						{
+							"key": "Action",
+							"value": "api"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
